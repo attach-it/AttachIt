@@ -39,6 +39,11 @@ public class PostAttachmentService {
                         .path(path)
                         .content(request.getContent())
                         .user(user)
+                        .colorCode(request.getColorCode())
+                        .zIndex(request.getZIndex())
+                        .postType(request.getPostType())
+                        .xPosition(request.getXPosition())
+                        .yPosition(request.getYPosition())
                         .build()
         );
 

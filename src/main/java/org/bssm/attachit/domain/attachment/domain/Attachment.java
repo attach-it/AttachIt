@@ -2,6 +2,7 @@ package org.bssm.attachit.domain.attachment.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.bssm.attachit.domain.attachment.domain.type.PostType;
 import org.bssm.attachit.domain.user.domain.User;
 
 @Entity
@@ -19,6 +20,21 @@ public class Attachment {
 
     @Column
     private String path;
+
+    @Column
+    private Long colorCode;
+
+    @Column
+    private Long zIndex;
+
+    @Column
+    private PostType postType;
+
+    @Column
+    private String xPosition;
+
+    @Column
+    private String yPosition;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
