@@ -28,6 +28,7 @@ public class Attachment {
     private Long zIndex;
 
     @Column
+    @Enumerated(EnumType.STRING)
     private PostType postType;
 
     @Column

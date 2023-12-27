@@ -23,6 +23,7 @@ jwt:
 
 root:
   path: ${ROOT_PATH}
+  url: ${SERVER_URL}
 
 server:
   servlet:

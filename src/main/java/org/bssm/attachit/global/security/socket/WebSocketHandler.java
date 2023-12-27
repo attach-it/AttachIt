@@ -3,8 +3,8 @@ package org.bssm.attachit.global.security.socket;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
-import org.bssm.attachit.domain.attachment.domain.Attachment;
 import org.bssm.attachit.domain.attachment.exception.SocketIOException;
+import org.bssm.attachit.domain.attachment.presentation.dto.response.AttachmentResponse;
 import org.bssm.attachit.domain.attachment.service.GetAttachmentListService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -37,7 +37,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
     @Scheduled(fixedRate = 1000, initialDelay = 5000)
     public void sendAttachmentListToAllClients() throws JsonProcessingException {
-        List<Attachment> attachmentList = getAttachmentListService.execute();
+        List<AttachmentResponse> attachmentList = getAttachmentListService.execute();
         String jsonAttachments = objectMapper.writeValueAsString(attachmentList);
         TextMessage message = new TextMessage(jsonAttachments);
         CLIENTS.forEach((key, value) -> {

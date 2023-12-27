@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class AttachmentController {
 
     private final PostAttachmentService postAttachmentService;
-
     @PostMapping
     public ResponseEntity<String> createPost(@RequestPart("data") PostAttachmentRequest request, @RequestPart("file") MultipartFile file, HttpServletRequest httpServletRequest) {
         return postAttachmentService.execute(request, file, httpServletRequest);

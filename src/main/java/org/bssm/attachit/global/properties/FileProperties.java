@@ -11,4 +11,5 @@ import java.nio.file.Path;
 @ConfigurationProperties(prefix = "root")
 public class FileProperties {
     private Path path;
+    private String url;
 }

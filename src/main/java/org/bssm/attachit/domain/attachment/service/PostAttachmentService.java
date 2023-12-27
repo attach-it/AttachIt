@@ -3,7 +3,6 @@ package org.bssm.attachit.domain.attachment.service;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.bssm.attachit.domain.attachment.domain.Attachment;
-import org.bssm.attachit.domain.attachment.exception.FileNotFoundException;
 import org.bssm.attachit.domain.attachment.presentation.dto.request.PostAttachmentRequest;
 import org.bssm.attachit.domain.attachment.repository.AttachmentRepository;
 import org.bssm.attachit.domain.user.domain.User;
@@ -24,15 +23,15 @@ public class PostAttachmentService {
     private final FileSaveUtil fileSaveUtil;
 
     public ResponseEntity<String> execute(PostAttachmentRequest request, MultipartFile file, HttpServletRequest httpServletRequest) {
-        if (file.isEmpty()) {
-            throw FileNotFoundException.EXCEPTION;
-        }
-
         User user = userRepository.findByEmail(jwtUtil.extractEmail(httpServletRequest)).orElseThrow(
                 () -> UserNotFoundException.EXCEPTION
         );
 
-        String path = fileSaveUtil.save(file);
+        String path = null;
+
+        if (!file.isEmpty()) {
+            path = fileSaveUtil.save(file);
+        }
 
         attachmentRepository.save(
                 Attachment.builder()
@@ -40,10 +39,10 @@ public class PostAttachmentService {
                         .content(request.getContent())
                         .user(user)
                         .colorCode(request.getColorCode())
-                        .zIndex(request.getZIndex())
+                        .zIndex(request.getZ())
                         .postType(request.getPostType())
-                        .xPosition(request.getXPosition())
-                        .yPosition(request.getYPosition())
+                        .xPosition(request.getX())
+                        .yPosition(request.getY())
                         .build()
         );
 

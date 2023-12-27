@@ -7,8 +7,8 @@ import org.bssm.attachit.domain.attachment.domain.type.PostType;
 public class PostAttachmentRequest {
     private String content;
     private Long colorCode;
-    private Long zIndex;
     private PostType postType;
-    private String xPosition;
-    private String yPosition;
+    private Long z;
+    private String x;
+    private String y;
 }
