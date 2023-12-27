@@ -18,7 +18,9 @@ public enum ErrorCode {
     FILE_ERROR(500, "파일 오류"),
 
     UNAUTHORIZED(403, "권한이 올바르지 않습니다"),
-    BAD_REQUEST(400, "잘못된 요청입니다");
+    BAD_REQUEST(400, "잘못된 요청입니다"),
+
+    SOCKET_OUTPUT(500, "소켓 데이터 전송 에러");
 
     private final int status;
     private final String message;
