@@ -18,7 +18,7 @@ import java.io.IOException;
 
 @Service
 @RequiredArgsConstructor
-public class UserLoginService {
+public class UserSignInService {
 
     private final UserRepository userRepository;
     private final AuthProperties authProperties;

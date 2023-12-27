@@ -1,12 +1,10 @@
 package org.bssm.attachit.global.error.exception;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum ErrorCode {
     USER_NOT_FOUND(404, "유저를 찾을 수 없습니다"),
 

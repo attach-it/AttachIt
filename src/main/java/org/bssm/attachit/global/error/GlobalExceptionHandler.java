@@ -16,7 +16,7 @@ public class GlobalExceptionHandler {
         final ErrorCode errorCode = e.getErrorCode();
         log.error(
                 "\n" + "{\n" +
-                        "\t\"status\": " + errorCode.getStatus() + '\"' +
+                        "\t\"status\": " + errorCode.getStatus() +
                         ",\n\t\"message\": \"" + errorCode.getMessage() + '\"' +
                         "\n}"
         );
@@ -27,3 +27,4 @@ public class GlobalExceptionHandler {
                 HttpStatus.valueOf(errorCode.getStatus()));
     }
 }
+
