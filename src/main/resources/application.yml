@@ -27,6 +27,7 @@ root:
 server:
   servlet:
     context-path: /api
+  port: ${SERVER_PORT}
 
 oauth:
   client_id: ${BSM_OAUTH_CLIENT_ID}
