@@ -20,8 +20,10 @@ public class FileSaveUtil {
     public String save(MultipartFile file) {
         try {
 
-            System.out.println(new String(Base64.getDecoder().decode(file.getBytes())));
-
+            System.out.println(file);
+            System.out.println(file.getOriginalFilename());
+            System.out.println(file.getInputStream());
+            System.out.println(file.getResource());
             // 파일 이름 생성 (UUID와 클라이언트에서 전송한 파일 이름 조합)
             String fileName = UUID.randomUUID().toString().replace("-", "") + "_" + file.getOriginalFilename();
 
