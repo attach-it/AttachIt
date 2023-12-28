@@ -18,7 +18,8 @@ public class FileSaveUtil {
 
     public String save(MultipartFile file) {
         try {
-            String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
+            String fileName = UUID.randomUUID().toString().replace("-", "") + "_" + file.getOriginalFilename();
+            System.out.println(fileProperties.getPath());
             Path path = fileProperties.getPath().resolve(
                     Paths.get(fileName)
                             .normalize());
