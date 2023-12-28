@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.bssm.attachit.domain.attachment.domain.type.PostType;
 import org.bssm.attachit.domain.user.domain.User;
+import org.bssm.attachit.global.entity.BaseTimeEntity;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-public class Attachment {
+public class Attachment extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,4 +41,5 @@ public class Attachment {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
 }
