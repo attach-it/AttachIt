@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.Base64;
 import java.util.UUID;
 
 @Component
@@ -18,9 +19,8 @@ public class FileSaveUtil {
 
     public String save(MultipartFile file) {
         try {
-            System.out.println(file);
-            // 클라이언트에서 전송한 파일 이름 얻기
-            System.out.println(file.getOriginalFilename());
+
+            System.out.println(new String(Base64.getDecoder().decode(file.getBytes())));
 
             // 파일 이름 생성 (UUID와 클라이언트에서 전송한 파일 이름 조합)
             String fileName = UUID.randomUUID().toString().replace("-", "") + "_" + file.getOriginalFilename();
