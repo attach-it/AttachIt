@@ -23,7 +23,9 @@ public class FileSaveUtil {
             Path path = fileProperties.getPath().resolve(
                     Paths.get(fileName)
                             .normalize());
+            System.out.println(path);
             Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("ok");
             return String.format("%s/%s", fileProperties.getPath(), fileName);
         } catch (IOException e) {
             throw FileException.EXCEPTION;
